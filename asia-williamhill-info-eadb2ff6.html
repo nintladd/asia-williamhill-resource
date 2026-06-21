@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>威廉希尔·信息卡页</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #fcfcfc;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', 'Helvetica Neue', sans-serif;
+      color: #1e1e1e;
+      line-height: 1.6;
+      padding: 2rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page {
+      max-width: 720px;
+      width: 100%;
+    }
+
+    /* hero */
+    .hero {
+      margin: 1.2rem 0 2.8rem 0;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: #121212;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero p {
+      font-size: 1rem;
+      color: #555;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* 卡片通用 */
+    .card-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin: 2.5rem 0;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 1.6rem 1.8rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.03);
+      border: 1px solid #eaeaea;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .card h2 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      border-left: 4px solid #1a1a2e;
+      padding-left: 0.8rem;
+      margin-bottom: 1rem;
+      color: #111;
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #2a2a2a;
+      margin-top: 0.5rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .card ul {
+      padding-left: 1.2rem;
+      list-style: none;
+    }
+
+    .card ul li {
+      position: relative;
+      padding-left: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: #3b3b3b;
+    }
+
+    .card ul li::before {
+      content: "·";
+      position: absolute;
+      left: 0;
+      font-weight: 700;
+      color: #1a1a2e;
+    }
+
+    .card p {
+      color: #3b3b3b;
+      margin-bottom: 0.5rem;
+    }
+
+    .tag-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .tag {
+      background: #f2f2f5;
+      border-radius: 40px;
+      padding: 0.2rem 1rem;
+      font-size: 0.85rem;
+      color: #2a2a2a;
+      letter-spacing: 0.01em;
+    }
+
+    .inset-link {
+      margin: 1.8rem 0 0.8rem 0;
+      font-size: 0.95rem;
+      color: #444;
+    }
+
+    .inset-link a {
+      color: #1a1a2e;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1.2px;
+      text-decoration-color: #b0b0c0;
+      transition: text-decoration-color 0.2s;
+    }
+
+    .inset-link a:hover {
+      text-decoration-color: #1a1a2e;
+    }
+
+    /* 适合人群卡片特殊处理 */
+    .audience-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 1.2rem;
+      margin: 0.5rem 0 0.2rem 0;
+    }
+
+    .audience-item {
+      background: #f0f0f5;
+      padding: 0.2rem 1.2rem 0.2rem 0.8rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      color: #2c2c2c;
+    }
+
+    .faq-preview {
+      margin-top: 2.5rem;
+      border-top: 1px solid #e6e6e6;
+      padding-top: 1.8rem;
+    }
+
+    .faq-item {
+      margin-bottom: 1rem;
+    }
+
+    .faq-item strong {
+      display: block;
+      font-weight: 500;
+      color: #1a1a2e;
+      margin-bottom: 0.15rem;
+    }
+
+    .faq-item p {
+      font-size: 0.92rem;
+      color: #4b4b4b;
+    }
+
+    .footer-note {
+      margin: 3.5rem 0 1.5rem 0;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #888;
+      border-top: 1px solid #ededed;
+      padding-top: 2rem;
+    }
+
+    @media (max-width: 480px) {
+      body { padding: 1.5rem 0.8rem; }
+      .hero h1 { font-size: 1.8rem; }
+      .card { padding: 1.3rem 1.2rem; }
+      .card h2 { font-size: 1.15rem; }
+    }
+
+    /* 收藏提示小符号 */
+    .bookmark-tip {
+      display: inline-block;
+      background: #f3f3f6;
+      padding: 0.2rem 0.8rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      color: #3a3a3a;
+      margin-right: 0.4rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- hero 主视觉 -->
+    <div class="hero">
+      <h1>威廉希尔·信息图鉴</h1>
+      <p>一次收藏，随时回看。从使用场景到人群适配，保持对 <strong>威廉希尔</strong> 的持续关注。</p>
+    </div>
+
+    <!-- 信息卡片：用途卡片 -->
+    <div class="card-grid">
+      <div class="card">
+        <h2>📇 用途卡片 · 主要场景</h2>
+        <p>威廉希尔面向多类信息需求，以下为最常见的三种使用方向：</p>
+        <ul>
+          <li><strong>资讯参考</strong> —— 获取平台动态、规则说明与常见问题归纳。</li>
+          <li><strong>功能探索</strong> —— 了解界面布局、赛事覆盖类别及个人化设置。</li>
+          <li><strong>持续跟踪</strong> —— 收藏页面后，方便后续回看更新内容或调整偏好。</li>
+        </ul>
+        <div class="tag-group">
+          <span class="tag">📌 常看常新</span>
+          <span class="tag">🔄 信息源</span>
+          <span class="tag">⚙️ 设置参考</span>
+        </div>
+      </div>
+
+      <!-- 卡片：适合人群 -->
+      <div class="card">
+        <h2>👥 适合人群</h2>
+        <p>以下用户群体往往更倾向于将威廉希尔加入书签并定期回访：</p>
+        <div class="audience-row">
+          <span class="audience-item">🏟️ 体育爱好者</span>
+          <span class="audience-item">📊 数据分析型用户</span>
+          <span class="audience-item">🧭 平台新用户</span>
+          <span class="audience-item">🔁 回访习惯者</span>
+          <span class="audience-item">📁 信息整理者</span>
+        </div>
+        <p style="margin-top: 0.8rem;">无论出于资讯回顾还是功能比对，再次访问的价值都体现在对细节的持续理解上。</p>
+      </div>
+
+      <!-- 卡片：自然链接段落 + 再次访问/收藏提示 -->
+      <div class="card">
+        <h2>🔖 再次访问 · 收藏理由</h2>
+        <p>许多用户会在初次浏览后选择收藏页面，以便后续快速定位。如果你希望将 <a href="https://asia-williamhill.com">威廉希尔</a> 加入浏览器的书签栏，或保存至笔记工具，以下几点值得留意：</p>
+        <ul>
+          <li>页面结构相对稳定，核心入口与导航区域变化频率低，适合长期参考。</li>
+          <li>内容更新通常集中在公告与帮助板块，收藏后每隔一段时间回看可获得新信息。</li>
+          <li>对偏好深度浏览的用户而言，保持一个固定入口能减少重复搜索的时间成本。</li>
+        </ul>
+        <div class="inset-link">
+          <span class="bookmark-tip">⭐ 推荐收藏</span> 如需直接定位，可使用 <a href="https://asia-williamhill.com">威廉希尔</a> 作为固定索引。
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ 摘要卡片（自然穿插） -->
+    <div class="faq-preview">
+      <h2 style="font-size: 1.15rem; font-weight: 500; margin-bottom: 1rem; color: #1a1a2e;">📋 常见关注点·摘要</h2>
+      <div class="faq-item">
+        <strong>访问频率与内容变化</strong>
+        <p>威廉希尔的帮助中心与平台公告会不定期更新，建议每隔两到四周回看一次，掌握最新调整。</p>
+      </div>
+      <div class="faq-item">
+        <strong>是否需要注册才能浏览？</strong>
+        <p>大部分资讯类页面允许直接阅读，部分个性化设置或详细数据可能需要登录账户，具体视板块而定。</p>
+      </div>
+      <div class="faq-item">
+        <strong>收藏后如何快速找到？</strong>
+        <p>浏览器书签或笔记应用内添加链接均可。若希望分类管理，可建立「常用平台」文件夹统一存放。</p>
+      </div>
+      <p style="margin-top: 1.2rem; font-size: 0.9rem; color: #5a5a5a;">以上摘要基于一般使用观察，具体以实际页面展示为准。</p>
+    </div>
+
+    <!-- 结尾 -->
+    <div class="footer-note">
+      <span>信息卡片 · 持续关注 威廉希尔</span>
+    </div>
+
+  </div>
+</body>
+</html>
