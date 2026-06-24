@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 站点信息与知识库</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #faf5ed;
+      font-family: "Noto Sans SC", system-ui, -apple-system, 'Segoe UI', Roboto, "Helvetica Neue", sans-serif;
+      color: #2e2b27;
+      line-height: 1.7;
+      padding: 2rem 1.5rem;
+    }
+
+    .page-container {
+      max-width: 960px;
+      margin: 0 auto;
+      background: rgba(255, 250, 242, 0.8);
+      border-radius: 28px;
+      padding: 2.4rem 2rem 3rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03), 0 2px 6px rgba(0, 0, 0, 0.02);
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 550;
+      letter-spacing: 1px;
+      color: #3d352e;
+      border-left: 6px solid #b08c6b;
+      padding-left: 1rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .site-hero {
+      background: #f0e8de;
+      border-radius: 24px;
+      padding: 2rem 2rem 2.2rem;
+      margin-bottom: 2.2rem;
+      border: 1px solid #e0d4c4;
+    }
+
+    .site-hero p {
+      font-size: 1.1rem;
+      color: #3c342b;
+      margin-bottom: 1rem;
+    }
+
+    .site-hero a {
+      color: #8a6e52;
+      font-weight: 500;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .site-hero a:hover {
+      color: #5f4a35;
+    }
+
+    .grid-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8rem;
+      margin: 2.2rem 0 2rem;
+    }
+
+    .info-card {
+      background: white;
+      border-radius: 20px;
+      padding: 1.5rem 1.4rem 1.8rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+      border: 1px solid #ede6db;
+      transition: box-shadow 0.15s;
+    }
+
+    .info-card:hover {
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+    }
+
+    .info-card h3 {
+      font-size: 1.2rem;
+      font-weight: 550;
+      margin-bottom: 1rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 2px solid #ece1d2;
+      color: #4d3f32;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .info-card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .info-card li {
+      padding: 0.3rem 0 0.3rem 1.2rem;
+      position: relative;
+      font-size: 0.96rem;
+      color: #3d352e;
+    }
+
+    .info-card li::before {
+      content: "·";
+      position: absolute;
+      left: 0.2rem;
+      font-weight: 700;
+      color: #b48f6c;
+      font-size: 1.2rem;
+    }
+
+    .quote-box {
+      background: #f3ecdf;
+      border-left: 5px solid #b8926e;
+      padding: 1.4rem 1.8rem;
+      margin: 2rem 0 1.6rem;
+      border-radius: 0 18px 18px 0;
+      font-style: normal;
+      color: #3f352b;
+      font-size: 0.98rem;
+      box-shadow: inset 0 0 0 1px rgba(255, 247, 234, 0.7);
+    }
+
+    .quote-box strong {
+      font-weight: 600;
+      color: #5d4b37;
+    }
+
+    .tip-area {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      background: #f6efe6;
+      border-radius: 24px;
+      padding: 1.6rem 1.8rem;
+      margin: 1.8rem 0 2.2rem;
+      border: 1px solid #e2d5c2;
+    }
+
+    .tip-item {
+      flex: 1 1 200px;
+    }
+
+    .tip-item .label {
+      display: block;
+      font-weight: 550;
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: #7f6a54;
+      margin-bottom: 0.2rem;
+    }
+
+    .tip-item .text {
+      font-size: 1rem;
+      color: #3f352b;
+    }
+
+    .faq-mini {
+      background: white;
+      border-radius: 20px;
+      padding: 1.8rem 1.8rem 2rem;
+      margin: 1.8rem 0 0.6rem;
+      border: 1px solid #e7ddcf;
+    }
+
+    .faq-mini summary {
+      font-weight: 500;
+      cursor: pointer;
+      padding: 0.6rem 0;
+      color: #4e3e30;
+      border-bottom: 1px dashed #dccfc0;
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .faq-mini summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-mini summary::before {
+      content: "▸";
+      margin-right: 0.7rem;
+      color: #b28a68;
+      transition: transform 0.2s;
+      display: inline-block;
+    }
+
+    .faq-mini details[open] summary::before {
+      transform: rotate(90deg);
+    }
+
+    .faq-mini details p {
+      margin: 0.8rem 0 0.2rem 1.7rem;
+      color: #4b3f34;
+      font-size: 0.95rem;
+      padding-right: 0.5rem;
+    }
+
+    .faq-mini details {
+      margin-bottom: 0.5rem;
+    }
+
+    .link-note {
+      margin-top: 2.4rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #e0d2be;
+      font-size: 0.95rem;
+      color: #5b4c3c;
+      text-align: center;
+    }
+
+    .link-note a {
+      color: #7c6349;
+      font-weight: 500;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: #cbb8a2;
+    }
+
+    .footer-meta {
+      text-align: center;
+      margin-top: 2.8rem;
+      font-size: 0.8rem;
+      color: #948473;
+      letter-spacing: 0.3px;
+    }
+
+    @media (max-width: 700px) {
+      .page-container {
+        padding: 1.5rem 1rem 2rem;
+      }
+
+      h1 {
+        font-size: 1.6rem;
+        padding-left: 0.7rem;
+      }
+
+      .grid-section {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .site-hero {
+        padding: 1.5rem;
+      }
+
+      .quote-box {
+        padding: 1.2rem 1.2rem;
+      }
+
+      .tip-area {
+        padding: 1.2rem;
+      }
+
+      .faq-mini {
+        padding: 1.2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 1rem 0.8rem;
+      }
+
+      .site-hero p {
+        font-size: 1rem;
+      }
+
+      .info-card h3 {
+        font-size: 1.05rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-container">
+  <h1>📖 关于爱游戏 · 站点信息库</h1>
+
+  <div class="site-hero">
+    <p><strong>爱游戏</strong>是一个以体育赛事与互动内容为核心的信息型平台。如果你希望了解赛程、玩法说明以及相关服务，<a href="https://tvsport-igame.com">爱游戏</a>提供了较为完整的参考体系。以下内容是基于公开信息整理的知识性摘要，帮助你快速定位与理解该站点。</p>
+    <p style="margin-bottom: 0; font-size: 0.95rem; color: #685a48;">本页作为索引页，不替代官方实时内容，仅用于引导与说明。</p>
+  </div>
+
+  <!-- 网格目录卡片 -->
+  <div class="grid-section">
+    <div class="info-card">
+      <h3>📂 站点结构</h3>
+      <ul>
+        <li>主域名 <strong>tvsport‑igame.com</strong> 承载核心页面</li>
+        <li>内容板块包括赛事日历、玩法指南、规则说明</li>
+        <li>界面适配桌面与移动端浏览</li>
+        <li>信息更新周期以赛事日程为准</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h3>⚙️ 特点概要</h3>
+      <ul>
+        <li>围绕体育赛事整合信息流</li>
+        <li>提供可参考的规则与操作说明</li>
+        <li>界面风格强调信息可读性</li>
+        <li>不涉及即时交易或金融内容</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h3>🧭 适用场景</h3>
+      <ul>
+        <li>了解赛事基础规则与赛制</li>
+        <li>查阅平台功能模块说明</li>
+        <li>作为信息整理的起点</li>
+        <li>辅助判断与自我学习</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h3>🔐 可信提示</h3>
+      <ul>
+        <li>所有说明类内容来自平台公开页面</li>
+        <li>建议对比多个来源交叉核对</li>
+        <li>不存储用户敏感数据</li>
+        <li>遵守地区相关法律法规</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 引用块 / 说明区 -->
+  <div class="quote-box">
+    <strong>📌 平台性质说明：</strong> 爱游戏（tvsport‑igame.com）是一个提供体育赛事相关信息、玩法说明及站内指引的网站。其内容以信息整理与呈现为主，不包含任何形式的非法承诺或诱导行为。用户在使用前应自行了解当地规则，并基于理性判断做出选择。
+  </div>
+
+  <!-- 提示区 (横向卡片式) -->
+  <div class="tip-area">
+    <div class="tip-item">
+      <span class="label">🔍 检索建议</span>
+      <span class="text">使用站内导航栏或关键词查找具体赛事说明</span>
+    </div>
+    <div class="tip-item">
+      <span class="label">📆 节奏参考</span>
+      <span class="text">信息通常在赛事开始前 48 小时内更新</span>
+    </div>
+    <div class="tip-item">
+      <span class="label">🧾 内容来源</span>
+      <span class="text">基于平台公开页面整理，不构成投资或行为建议</span>
+    </div>
+  </div>
+
+  <!-- FAQ 摘要 (折叠) -->
+  <div class="faq-mini">
+    <h3 style="font-weight: 550; font-size: 1.1rem; margin-bottom: 0.8rem; color: #4d3f32;">❓ 常见问题摘要</h3>
+    <details>
+      <summary>爱游戏 主要提供哪些信息？</summary>
+      <p>主要围绕体育赛事相关的赛程、玩法说明、平台规则以及常见指南。内容以知识性整理为主，帮助访问者快速了解站点功能。</p>
+    </details>
+    <details>
+      <summary>如何确认页面内容的准确性？</summary>
+      <p>建议直接查阅 <a href="https://tvsport-igame.com" style="color:#7c6349; text-decoration:underline;">爱游戏</a> 上的官方页面，并留意最后更新时间。本摘要仅作为辅助参考。</p>
+    </details>
+    <details>
+      <summary>这个平台适合哪些用户？</summary>
+      <p>适合希望系统了解体育赛事信息、规则说明及平台框架的访问者。所有内容均基于公开信息整理，不针对特定群体。</p>
+    </details>
+    <details>
+      <summary>是否有下载或注册要求？</summary>
+      <p>根据平台页面显示，浏览基础信息通常无需注册。具体功能模块可能有不同要求，请以实际页面提示为准。</p>
+    </details>
+  </div>
+
+  <!-- 嵌入式链接句子 -->
+  <div class="link-note">
+    如果你希望进一步了解详细信息，可以直接访问 <a href="https://tvsport-igame.com">爱游戏</a>。那里集中了完整的赛事资料与使用指引。
+  </div>
+
+  <div class="footer-meta">
+    — 知识索引页 · 信息更新于最近整理周期 —
+  </div>
+</div>
+</body>
+</html>
