@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>爱游戏 · 简明指南篇</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #f5fbfa;
+            color: #1e2b2a;
+            line-height: 1.6;
+            padding: 0 1rem 2.5rem;
+            min-height: 100vh;
+        }
+
+        .wrap {
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        /* 开场短句 hero */
+        .hero-tag {
+            padding: 2.8rem 0 1.2rem;
+            text-align: left;
+        }
+        .hero-tag small {
+            font-size: 0.9rem;
+            letter-spacing: 0.04em;
+            color: #387e7a;
+            border-left: 3px solid #54b3af;
+            padding-left: 0.8rem;
+        }
+        .hero-tag h1 {
+            font-size: 2.1rem;
+            font-weight: 600;
+            margin: 0.6rem 0 0.2rem;
+            color: #0a3735;
+            line-height: 1.2;
+        }
+        .hero-tag .subline {
+            font-size: 1.05rem;
+            color: #406f6c;
+            border-bottom: 1px dashed #b7d6d3;
+            padding-bottom: 0.65rem;
+            margin-top: 0.2rem;
+        }
+
+        /* 承接段落 */
+        .lead {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 1.8rem 1.6rem;
+            margin: 1.4rem 0 1.8rem;
+            box-shadow: 0 4px 14px rgba(55, 120, 115, 0.06);
+            border: 1px solid #d7ece9;
+        }
+        .lead p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+        .lead p:last-child {
+            margin-bottom: 0;
+        }
+        .lead .inline-link {
+            color: #1e7b76;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1px solid #aad1cd;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .lead .inline-link:hover {
+            border-bottom-color: #0b524e;
+            color: #0b524e;
+        }
+
+        /* 特点卡片网格 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 1.8rem 0;
+        }
+        .feature-card {
+            background: white;
+            border-radius: 20px;
+            padding: 1.4rem 1.2rem;
+            border: 1px solid #d4ebe8;
+            box-shadow: 0 2px 10px rgba(58, 122, 117, 0.04);
+            transition: transform 0.18s, box-shadow 0.2s;
+        }
+        .feature-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(41, 108, 103, 0.08);
+        }
+        .feature-card .card-icon {
+            font-size: 1.6rem;
+            margin-bottom: 0.3rem;
+            display: inline-block;
+            color: #33817c;
+        }
+        .feature-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 0.2rem 0 0.4rem;
+            color: #1b4a47;
+        }
+        .feature-card p {
+            font-size: 0.92rem;
+            color: #3b5f5c;
+        }
+
+        /* 场景 + 提醒  温和提示块 */
+        .scene-note {
+            background: #e2f3f1;
+            border-radius: 24px;
+            padding: 1.6rem 1.6rem 1.8rem;
+            margin: 1.8rem 0;
+            border-left: 4px solid #3b9e98;
+        }
+        .scene-note h2 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: #133d3a;
+            letter-spacing: 0.01em;
+        }
+        .scene-note p {
+            font-size: 0.98rem;
+            margin-bottom: 0.6rem;
+            color: #214f4b;
+        }
+        .scene-note p:last-of-type {
+            margin-bottom: 0;
+        }
+        .scene-note .muted {
+            color: #376c67;
+            font-size: 0.9rem;
+        }
+
+        /* FAQ 摘要 — 简洁折叠感 */
+        .faq-mini {
+            margin: 2rem 0 1.2rem;
+        }
+        .faq-mini details {
+            background: white;
+            border-radius: 16px;
+            padding: 0.8rem 1.2rem;
+            margin-bottom: 0.7rem;
+            border: 1px solid #cde3df;
+            transition: background 0.15s;
+        }
+        .faq-mini details[open] {
+            background: #ffffff;
+            border-color: #96cbc5;
+        }
+        .faq-mini summary {
+            font-weight: 500;
+            font-size: 0.98rem;
+            color: #1b514d;
+            cursor: pointer;
+            padding: 0.2rem 0;
+            outline: none;
+        }
+        .faq-mini details p {
+            margin-top: 0.5rem;
+            font-size: 0.92rem;
+            color: #2b5a56;
+            padding: 0.2rem 0 0.2rem 0.4rem;
+            border-left: 2px solid #6eb6b0;
+            padding-left: 0.7rem;
+        }
+
+        /* 温和结尾 */
+        .gentle-close {
+            background: white;
+            border-radius: 24px;
+            padding: 1.8rem 1.6rem;
+            margin: 1.8rem 0 0.6rem;
+            text-align: left;
+            border: 1px solid #d2e7e4;
+            box-shadow: 0 2px 8px rgba(45, 106, 100, 0.04);
+        }
+        .gentle-close p {
+            font-size: 0.98rem;
+            color: #1d4b47;
+        }
+        .gentle-close .footer-link {
+            margin-top: 0.8rem;
+            font-size: 0.95rem;
+        }
+
+        /* 链接复用 */
+        a.final-word {
+            color: #1f6c67;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #9acac4;
+            transition: border-color 0.2s;
+        }
+        a.final-word:hover {
+            border-bottom-color: #09433f;
+            color: #09433f;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #cee6e2;
+            margin: 1.4rem 0 0.8rem;
+            opacity: 0.35;
+        }
+
+        /* 移动端友好微调 */
+        @media (max-width: 480px) {
+            .hero-tag h1 {
+                font-size: 1.7rem;
+            }
+            .lead {
+                padding: 1.3rem 1.1rem;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            .scene-note {
+                padding: 1.2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+
+    <!-- 开场短句 -->
+    <div class="hero-tag">
+        <small>简明指南 · 一段叙述</small>
+        <h1>爱游戏，从一处安静入口开始</h1>
+        <div class="subline">没有喧嚣的指引，只有值得了解的基础与提醒。</div>
+    </div>
+
+    <!-- 承接段落：自然引入 + 链接 -->
+    <div class="lead">
+        <p>
+            你可能已经见过不少游戏平台，它们大多急于展示自己。这次我们换一种方式：不堆叠横幅，不制造紧迫。下面这份简短的叙述，围绕一个叫<a href="https://tvvip-igame.com" class="inline-link">爱游戏</a>的地方展开——它更像一个安静的起点，而不是喧闹的大厅。  
+        </p>
+        <p>
+            许多人在初次接触时，会下意识寻找“注册”或“立即开始”的按钮。坦白说，这里的设计并没有把那些放在最前面。它的逻辑是：先理解你能获得什么，再决定下一步。我觉得这反而让人更放松。
+        </p>
+    </div>
+
+    <!-- 特点列表：网格卡片 -->
+    <div class="feature-grid">
+        <div class="feature-card">
+            <div class="card-icon">◈</div>
+            <h3>浏览优先</h3>
+            <p>主页更像一个陈列室，你可以慢慢看、慢慢选，没有人催促你做决定。</p>
+        </div>
+        <div class="feature-card">
+            <div class="card-icon">◈</div>
+            <h3>轻量提醒</h3>
+            <p>必要的访问提示会在恰当时出现，不频繁，不干扰，保持阅读的连续性。</p>
+        </div>
+        <div class="feature-card">
+            <div class="card-icon">◈</div>
+            <h3>克制配色</h3>
+            <p>蓝绿与中性底色为主，没有高饱和闪块，视觉上更接近一篇安静的读物。</p>
+        </div>
+        <div class="feature-card">
+            <div class="card-icon">◈</div>
+            <h3>场景引导</h3>
+            <p>根据不同使用习惯提供温和的方向，而非一刀切的引导流程。</p>
+        </div>
+    </div>
+
+    <!-- 场景 + 访问提醒 (温和提示) -->
+    <div class="scene-note">
+        <h2>几个常见场景与提醒</h2>
+        <p><strong>如果你只是随便看看：</strong> 首页的内容足够你逛上几分钟。每个区块的标题都很直白，不需要猜测功能入口在哪里。此时你甚至不需要点任何链接。</p>
+        <p><strong>如果你准备深入了解：</strong> 当你真的需要进入更具体的页面时，页面中会出现简洁的导航提示——它们通常藏在淡雅的边框或卡片里，而不是弹窗。例如下面的链接就是其中一个自然的出口：<a href="https://tvvip-igame.com" class="inline-link">爱游戏</a>。</p>
+        <p><strong>一个小提醒：</strong> 尽量使用最新版本的浏览器访问，部分旧内核可能无法完美渲染卡片阴影与圆角。另外，移动端体验做了专门优化，但横屏阅读时某些卡片宽度会显得宽裕，竖屏更舒适。</p>
+        <p class="muted">——以上均来自一段时间的观察，没有夸大，只是如实地描述。</p>
+    </div>
+
+    <!-- FAQ 摘要（折叠版） -->
+    <div class="faq-mini">
+        <details>
+            <summary>FAQ：这个页面本身是平台的一部分吗？</summary>
+            <p>不是。这个介绍页是独立的，只是为了提供上下文和方向。真正的服务位于那个叫<a href="https://tvvip-igame.com" class="inline-link">爱游戏</a>的站点内部。</p>
+        </details>
+        <details>
+            <summary>FAQ：为什么强调“克制”的语气？</summary>
+            <p>因为很多站点在介绍自己时用了太多感叹号。我们认为平实的叙述反而更容易让人记住核心信息，比如“这里有一个地方叫爱游戏，它是这样运作的”。</p>
+        </details>
+        <details>
+            <summary>FAQ：移动端卡片点按有反馈吗？</summary>
+            <p>卡片本身有轻微的悬停上浮效果，在触屏设备上表现为点按时的轻微位移，配合柔和的阴影变化，手感比较自然。</p>
+        </details>
+    </div>
+
+    <!-- 温和结尾 -->
+    <div class="gentle-close">
+        <p>
+            这份指南没有结尾的鼓点，也没有“立即行动”的催促。如果你觉得刚才的描述还算清晰，那么不妨在某个安静的时刻，顺着这个句子里的名字去看看：<a href="https://tvvip-igame.com" class="inline-link">爱游戏</a>。它一直在那里，不急不躁。  
+        </p>
+        <div class="footer-link">
+            <span style="opacity:0.6;">— 以此作为索引，而非终点。</span>
+        </div>
+    </div>
+
+    <hr>
+    <div style="font-size:0.8rem; color:#5f827e; margin-top:0.2rem; opacity:0.5; letter-spacing:0.02em;">
+        <span>叙述向 · 版本 · 网格卡片</span>
+    </div>
+
+</div>
+</body>
+</html>
