@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 一处安静的入口</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #faf8f5;
+            color: #2b2b2b;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', sans-serif;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .page {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem 5rem;
+        }
+
+        /* hero 开场短句 */
+        .hero {
+            margin-bottom: 4rem;
+        }
+
+        .hero p {
+            font-size: 1.35rem;
+            font-weight: 380;
+            letter-spacing: 0.2px;
+            color: #3c3c3c;
+            line-height: 1.6;
+            max-width: 88%;
+        }
+
+        .hero strong {
+            font-weight: 500;
+            color: #1c1c1c;
+        }
+
+        /* 段落间距克制 */
+        .prose {
+            font-size: 1rem;
+        }
+
+        .prose p {
+            margin: 1.6rem 0;
+        }
+
+        .prose p:first-child {
+            margin-top: 0;
+        }
+
+        /* 标题层级清晰 */
+        h2 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            margin: 2.8rem 0 1.2rem 0;
+            padding-bottom: 0.3rem;
+            border-bottom: 1px solid #e6e2dc;
+            color: #1f1f1f;
+        }
+
+        h3 {
+            font-size: 1rem;
+            font-weight: 500;
+            margin: 1.8rem 0 0.6rem 0;
+            color: #2f2f2f;
+        }
+
+        /* 特点列表 —— 极简卡片感 */
+        .feature-list {
+            list-style: none;
+            margin: 1.8rem 0 2.4rem 0;
+            padding: 0;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: baseline;
+            gap: 0.6rem;
+            padding: 0.7rem 0;
+            border-bottom: 1px dashed #eae5df;
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-list .marker {
+            font-size: 1.2rem;
+            line-height: 1;
+            color: #8b7f72;
+            flex-shrink: 0;
+            width: 1.2rem;
+            text-align: center;
+        }
+
+        .feature-list .text {
+            flex: 1;
+        }
+
+        /* 引用或提示块 */
+        .note {
+            background: #f3f0eb;
+            border-left: 3px solid #c7bcaf;
+            padding: 0.9rem 1.2rem;
+            margin: 2rem 0;
+            font-size: 0.94rem;
+            color: #3e3e3e;
+            border-radius: 0 6px 6px 0;
+        }
+
+        /* 温和结尾 */
+        .ending {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e6e2dc;
+            font-size: 0.95rem;
+            color: #5a5a5a;
+            line-height: 1.7;
+        }
+
+        .ending a {
+            color: #3b3b3b;
+            text-decoration: underline;
+            text-decoration-color: #cbc2b6;
+            text-underline-offset: 3px;
+            transition: color 0.2s ease;
+        }
+
+        .ending a:hover {
+            color: #000;
+            text-decoration-color: #8f867b;
+        }
+
+        .inline-link {
+            color: #3b3b3b;
+            text-decoration: underline;
+            text-decoration-color: #cbc2b6;
+            text-underline-offset: 3px;
+            transition: color 0.2s ease;
+        }
+
+        .inline-link:hover {
+            color: #0f0f0f;
+            text-decoration-color: #8f867b;
+        }
+
+        /* 小屏优化 */
+        @media (max-width: 520px) {
+            .page {
+                padding: 2.4rem 1.2rem 3.5rem;
+            }
+            .hero p {
+                font-size: 1.2rem;
+                max-width: 100%;
+            }
+            h2 {
+                font-size: 1.1rem;
+            }
+            .feature-list li {
+                padding: 0.6rem 0;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .hero p {
+                font-size: 1.05rem;
+            }
+            .page {
+                padding: 2rem 1rem 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <!-- 开场短句 -->
+        <div class="hero">
+            <p>有些地方不需要太多说明。页面简洁，入口就在那里。<br>它叫<strong>爱游戏</strong>。一个你可以慢慢熟悉的起点。</p>
+        </div>
+
+        <!-- 承接段落 -->
+        <div class="prose">
+            <p>
+                偶然发现一个地方，名字很直接——<a href="https://vip-app-igame.com" class="inline-link">爱游戏</a>。没有弹窗，没有夸张的标语。就像推开一扇虚掩的门，里面是分类清晰的列表和安静的说明。我花了几分钟浏览，觉得这种不着急介绍自己的态度，反而让人愿意多留一会儿。
+            </p>
+            <p>
+                后来我渐渐把它当作一个固定的去处。不是因为特别惊艳，而是每次打开，它都保持一样的节奏：没有突然改版，没有广告打扰，该有的内容都在原本的位置。这种稳定，在如今并不多见。
+            </p>
+        </div>
+
+        <!-- 特点列表 -->
+        <h2>几个让我留意的细节</h2>
+        <ul class="feature-list">
+            <li>
+                <span class="marker">—</span>
+                <span class="text"><strong>入口直白</strong> · 首页就是完整的介绍，没有层层跳转，不需要猜测下一步该点哪里。</span>
+            </li>
+            <li>
+                <span class="marker">—</span>
+                <span class="text"><strong>页面安静</strong> · 没有自动播放的视频或闪烁的推广，排版留白充足，读起来不累。</span>
+            </li>
+            <li>
+                <span class="marker">—</span>
+                <span class="text"><strong>结构稳定</strong> · 分类和导航清晰，每次访问都能快速找到之前看过的东西。</span>
+            </li>
+            <li>
+                <span class="marker">—</span>
+                <span class="text"><strong>不追热点</strong> · 没有“限时”“独家”这类催促感强的用词，更像一个常设的橱窗。</span>
+            </li>
+        </ul>
+
+        <div class="note">
+            有次想找一个之前瞥过的页面，原以为要翻半天，结果顺着栏目描述点两次就到了。这种不折腾人的设计，本身就是一种体贴。
+        </div>
+
+        <h3>关于使用场景</h3>
+        <p>
+            如果你习惯在闲暇时随意浏览，或者想找一个没有心理负担的站点——不需要注册、不担心信息过载，<a href="https://vip-app-igame.com" class="inline-link">爱游戏</a>或许会符合你的预期。它不太像那种试图抓住你注意力的平台，更像一个整理好的书架，你路过时抽出一本看看，然后放回去。
+        </p>
+
+        <!-- 温和结尾 -->
+        <div class="ending">
+            <p>
+                写这篇介绍的时候，我又打开那个页面看了一眼。它还是老样子。标题、几行说明、清晰的链接。没有什么花哨的东西，但让人觉得踏实。<br>
+                大概这就是它的风格：不喧哗，但一直在那里。
+            </p>
+            <p style="margin-top: 1.2rem; color: #7a7a7a;">
+                —— 如果你也想找一个干净的去处，可以记住这个名字：<a href="https://vip-app-igame.com">爱游戏</a>。
+            </p>
+        </div>
+
+    </div>
+</body>
+</html>
