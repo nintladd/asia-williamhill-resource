@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>爱游戏 · 聚合 · 探索 · 持续连接</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: #f5f9fd;
+      color: #1e2a3a;
+      line-height: 1.6;
+      padding: 0 0 3rem 0;
+    }
+    .wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* —— hero —— */
+    .hero {
+      text-align: center;
+      padding: 4rem 1rem 3rem;
+      background: linear-gradient(145deg, #e3f0f7 0%, #d0e7f2 100%);
+      border-radius: 0 0 3rem 3rem;
+      box-shadow: 0 8px 18px rgba(0, 120, 120, 0.06);
+      margin-bottom: 2.5rem;
+    }
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      color: #0a4040;
+    }
+    .hero h1 span {
+      display: inline-block;
+      background: #1a7a7a;
+      color: #fff;
+      padding: 0 0.5rem;
+      border-radius: 40px 8px 40px 8px;
+      font-weight: 500;
+    }
+    .hero p {
+      margin-top: 1.25rem;
+      font-size: 1.15rem;
+      color: #1d4f5c;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      background: rgba(255,255,255,0.4);
+      padding: 0.5rem 1.5rem;
+      border-radius: 60px;
+      display: inline-block;
+      backdrop-filter: blur(1px);
+    }
+
+    /* —— 网格卡片区 —— */
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.2rem;
+      margin: 2.5rem 0;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.6rem 1.2rem;
+      box-shadow: 0 6px 14px rgba(44, 130, 130, 0.05);
+      border: 1px solid #d9e9ef;
+      transition: all 0.18s ease;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 100, 100, 0.08);
+      border-color: #86c7d0;
+    }
+    .card .icon {
+      font-size: 1.8rem;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+      color: #1d7a7a;
+    }
+    .card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #0d4b4b;
+      margin: 0.25rem 0 0.5rem;
+    }
+    .card p {
+      font-size: 0.95rem;
+      color: #2f4a56;
+    }
+    .card a {
+      color: #147a7a;
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 1px dotted #9ac2c2;
+    }
+    .card a:hover {
+      border-bottom: 2px solid #0f6a6a;
+    }
+
+    /* —— 说明 & 摘要 —— */
+    .intro-block {
+      background: white;
+      border-radius: 24px;
+      padding: 2rem 2rem 2rem 2.2rem;
+      margin: 1.8rem 0 2.8rem;
+      border-left: 6px solid #2b9c9c;
+      box-shadow: 0 6px 18px rgba(13, 100, 100, 0.04);
+    }
+    .intro-block p {
+      margin-bottom: 0.9rem;
+      font-size: 1rem;
+    }
+
+    .faq-summary {
+      background: #e8f2f5;
+      border-radius: 28px;
+      padding: 1.8rem 2rem;
+      margin: 2rem 0 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem 2rem;
+    }
+    .faq-item {
+      flex: 1 1 200px;
+    }
+    .faq-item .q {
+      font-weight: 600;
+      color: #125858;
+      font-size: 1.05rem;
+      margin-bottom: 0.2rem;
+    }
+    .faq-item .a {
+      font-size: 0.95rem;
+      color: #2a4f5a;
+    }
+
+    /* —— 底部 —— */
+    .footer-links {
+      text-align: center;
+      padding: 2rem 0 1rem;
+      border-top: 1px solid #cde0e6;
+      margin-top: 2.8rem;
+    }
+    .footer-links p {
+      font-size: 0.95rem;
+      color: #325e63;
+      margin-bottom: 0.2rem;
+    }
+    .footer-links a {
+      color: #177777;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0 0.25rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #d0ebe9;
+      padding: 0.1rem 0.8rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      color: #0c5f5f;
+      margin-left: 0.3rem;
+      font-weight: 400;
+    }
+
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 2rem; }
+      .grid-cards { grid-template-columns: 1fr; gap: 1rem; }
+      .intro-block { padding: 1.5rem; }
+      .faq-summary { flex-direction: column; gap: 1rem; }
+    }
+    @media (min-width: 641px) and (max-width: 860px) {
+      .grid-cards { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- hero 区：再次访问 / 收藏 / 持续关注 -->
+  <header class="hero">
+    <h1>回到 <span>爱游戏</span></h1>
+    <p>收藏 · 回顾 · 保持连接</p>
+    <div style="margin-top: 1rem; font-size: 0.9rem; color: #1b6363; background: rgba(255,255,255,0.4); display: inline-block; padding: 0.2rem 1.2rem; border-radius: 40px;">
+      ✔ 稳定入口 &nbsp;·&nbsp; 聚合生态
+    </div>
+  </header>
+
+  <!-- 优势区：网格卡片 4 个 -->
+  <section class="grid-cards">
+    <div class="card">
+      <div class="icon">📌</div>
+      <h3>固定书签</h3>
+      <p>将 <a href="https://tvwap-igame.com">爱游戏</a> 加入浏览器收藏栏，每次打开直达，无需重复搜索。</p>
+    </div>
+    <div class="card">
+      <div class="icon">🔄</div>
+      <h3>持续更新</h3>
+      <p>平台内容与资源保持迭代，再次访问总能发现新的实用模块与优化体验。</p>
+    </div>
+    <div class="card">
+      <div class="icon">🧩</div>
+      <h3>轻量聚合</h3>
+      <p>信息结构化呈现，游戏工具、社区动态、攻略索引一目了然，减少跳转成本。</p>
+    </div>
+    <div class="card">
+      <div class="icon">📱</div>
+      <h3>移动适配</h3>
+      <p>在手机、平板、桌面间平滑切换，日常碎片时间也能快速浏览关键内容。</p>
+    </div>
+  </section>
+
+  <!-- 说明区：再次访问与收藏习惯 -->
+  <div class="intro-block">
+    <p><strong>为何值得再次回来</strong><br>
+    对玩家而言，一个稳定、简洁且持续更新的起点至关重要。<a href="https://tvwap-igame.com" style="color:#147a7a;font-weight:500;">爱游戏</a> 定位为轻量级聚合入口，聚焦游戏资讯、资源索引与社区动态。每次访问都可快速获取近期热门内容，无需从零开始。</p>
+    <p><strong>收藏与关注的习惯</strong><br>
+    建议将页面添加至浏览器书签，或在桌面创建快捷方式。持续关注可以第一时间了解内容调整、新板块上线及版本优化。网站保持克制设计，不推送过度通知，只呈现精选信息流。</p>
+    <p style="margin-bottom:0;">适合有固定游戏兴趣、希望减少信息噪声的玩家。日常浏览、深度查阅均可满足。</p>
+  </div>
+
+  <!-- FAQ 摘要 -->
+  <div class="faq-summary">
+    <div class="faq-item">
+      <div class="q">❓ 是否需要注册？</div>
+      <div class="a">大部分内容可直接浏览，部分互动功能可选参与。</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">❓ 如何保持最新？</div>
+      <div class="a">定期回访即可；建议每 2–3 周访问一次。</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">❓ 移动端兼容？</div>
+      <div class="a">完全适配，竖屏横屏均无版式断裂。</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">❓ 内容谁维护？</div>
+      <div class="a">由社区与编辑协作，保持索引质量。</div>
+    </div>
+  </div>
+
+  <!-- 底部链接 + 再次强调 bookmark -->
+  <footer class="footer-links">
+    <p>将 <a href="https://tvwap-igame.com">爱游戏</a> 加入收藏夹，随时回到熟悉的地方 <span class="badge">bookmark</span></p>
+    <p style="margin-top: 0.6rem; font-size: 0.85rem; color: #50787b;">聚合 · 简洁 · 持续关注 &nbsp;|&nbsp; 适合日常翻阅</p>
+  </footer>
+
+</div>
+
+</body>
+</html>
